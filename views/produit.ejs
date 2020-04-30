@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= siteTitl %></title>
+    <style>
+        *{border-radius: 0px !important;}
+        body{
+            font-family: 'Poppins';
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand" style="color: #fff;"><a href="/" style="text-decoration: none; color: white;">Rayon</a>-<%= pageTitle %></span>
+    </nav>
+        <div class="col s12" style="margin-top: 3%;">
+            <% if (items.length > 0) { %>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;text-align: center;">Name</th>
+                            <th style="width: 15%;text-align: center;">Category</th>
+                            <th style="width: 15%;text-align: center;">Price</th>
+                            <th style="width: 15%;text-align: center;">Quantité</th>
+                            <th style="width: 15%;text-align: center;">Rayon</th>
+                            <th style="width: 15%;text-align: center;">Rayon name</th>
+                            <th solspan="2" style="width: 20%;text-align: center;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% items.forEach(function(item, produit){ %>
+                            <tr>
+                                <td style="width: 15%;text-align: center;"><a href="/fornisseur/<%= item.id_P %>" style="color: black; text-decoration: none;"><%= item.name_p %></a></td>
+                                <td style="width: 15%;text-align: center;"><%= item.category %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.price %> $</td>
+                                <td style="width: 15%;text-align: center;"><%= item.quantité %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.id_R %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.name %></td>
+                                <td solspan="2" style="width: 20%;text-align: center;">
+                                    <a href="/edit/<%= item.id_P %>" class="btn btn-success">Edit</a>
+                                    <a href="/delete/<%= item.id_P %>" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            <% }else{ %>
+                <p><strong>There are no records available</strong></p>
+            <% } %>
+        </div>
+            <div class="col s12" style="margin-top: 3%;">
+                <a href="/add" class="btn btn-info btn-lg">Add new produit</a>
+            </div>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

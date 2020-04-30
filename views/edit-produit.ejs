@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= siteTitl %></title>
+    <style>
+        *{border-radius: 0px !important;}
+        body{
+            font-family: 'Poppins';
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand" style="color: #fff;"><%= pageTitle %></span>
+    </nav>
+    <div class="row" style="margin-left: 50px; margin-right: 50px; margin-top: 90px;">
+        <form action="/edit/<%= item[0].id_P %>" method="POST" class="col">
+            <input type="hidden" name="id_P" value="<%= item[0].id_P %>">
+            <div class="form-group row">
+                <label for="name_p" class="col-2 col-form-label">Name</label>
+                <div class="col-10">
+                    <input type="text" name="name_p" value="<%= item[0].name_p %>" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="category" class="col-2 col-form-label">Category</label>
+                <div class="col-10">
+                    <input type="text" name="category" value="<%= item[0].category %>" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="price" class="col-2 col-form-label">Price</label>
+                <div class="col-10">
+                    <input type="number" name="price" value="<%= item[0].price %>" class="form-control">
+                </div>
+            </div><div class="form-group row">
+                <label for="quantité" class="col-2 col-form-label">Quantité</label>
+                <div class="col-10">
+                    <input type="text" name="quantité" value="<%= item[0].quantité %>" class="form-control">
+                </div>
+            </div><div class="form-group row">
+                <label for="id_R" class="col-2 col-form-label">Rayon</label>
+                <div class="col-10">
+                    <input type="number" name="id_R" value="<%= item[0].id_R %>" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row" style="margin-left: 16%;">
+                <div class="col-10">
+                    <input type="submit" name="submit" value="Edit" class="btn btn-dark btn-lg">
+                </div>
+            </div>
+        </form>
+    </div>
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

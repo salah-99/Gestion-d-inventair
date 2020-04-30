@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title><%= siteTitle %></title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        img{
+            max-width: 286px;
+            height: 190px ;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand" style="color: #fff;"><%= pageTitle %></span>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <% if (items.length > 0) { %>
+                <% items.forEach(function(item, rayon){ %>
+                        <div class="col col-12 col-md-6 col-lg-4 col-xl-3" style="margin-top: 5%;">
+                            <div class="card" style="width: 18rem;">
+                                <img src="<%= item.img %>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                  <h5 class="card-title">
+                                      <a href="/produit/<%= item.id_R %>" style="color: rgb(47, 89, 93);"><%= item.name %></a>
+                                  </h5>
+                                </div>
+                            </div>
+                            <center style="margin-top: 5%;">
+                                <a href="/rayon/edit/<%= item.id_R %>" class="btn btn-secondary">Edit</a>
+                                <a href="/rayon/delete/<%= item.id_R %>" class="btn btn-info">Delete</a>
+                            </center>
+                        </div>
+                <% }); %>
+    <% }else{ %>
+        <p><strong>There are no records available</strong></p>
+    <% } %>
+        </div>
+    </div>
+        <div class="col s12" style="margin-top: 3%;">
+            <a href="/rayon/add" class="btn btn-info btn-lg">Add new Rayon</a>
+        </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= siteTitlle %></title>
+    <style>
+        *{border-radius: 0px !important;}
+        body{
+            font-family: 'Poppins';
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand" style="color: #fff;"><%= pageTitle %></span>
+    </nav>
+        <div class="col s12" style="margin-top: 3%;">
+            <% if (items.length > 0) { %>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;text-align: center;">Name</th>
+                            <th style="width: 15%;text-align: center;">Address</th>
+                            <th style="width: 15%;text-align: center;">Télé</th>
+                            <th style="width: 15%;text-align: center;">Email</th>
+                            <th style="width: 15%;text-align: center;">Produit</th>
+                            <th style="width: 15%;text-align: center;">Produit name</th>
+                            <th solspan="2" style="width: 20%;text-align: center;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% items.forEach(function(item, fornisseur){ %>
+                            <tr>
+                                <td style="width: 15%;text-align: center;"><%= item.name %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.address %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.télé %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.email %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.id_P %></td>
+                                <td style="width: 15%;text-align: center;"><%= item.name_p %></td>
+                                <td solspan="2" style="width: 20%;text-align: center;">
+                                    <a href="/edit/<%= item.id_F %>" class="btn btn-success">Edit</a>
+                                    <a href="/delete/<%= item.id_F %>" class="btn btn-danger">Delete</a>
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            <% }else{ %>
+                <p><strong>There are no records available</strong></p>
+            <% } %>
+        </div>
+            <div class="col s12" style="margin-top: 3%;">
+                <a href="/add/fornisseur" class="btn btn-info btn-lg">Add new Fornisseur</a>
+            </div>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
