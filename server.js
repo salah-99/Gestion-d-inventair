@@ -131,7 +131,7 @@ app.post('/add',(req, res) => {
 });
 
 
-// // update some data
+// update some data
 
 app.get('/edit/:id',(req, res) => {
 
@@ -172,7 +172,7 @@ app.get('/delete/:id', (req, res) => {
 
 const siteTitlle = 'Fornisseur'
 
-// Get the product
+// Get the fornisseur
 app.get('/fornisseur/:id',(req, res) => {
     id = req.params.id;
     let sql = "SELECT fornisseur.id_P, fornisseur.name, fornisseur.address, fornisseur.télé, fornisseur.email, produit.id_P, produit.name_p FROM fornisseur INNER JOIN produit ON fornisseur.id_P = produit.id_P AND fornisseur.id_P = '" +id+ "' ";
@@ -186,7 +186,7 @@ app.get('/fornisseur/:id',(req, res) => {
     });
 });
 
-// ADD new product
+// ADD new fornisseur
 
 app.get('/add/fornisseur',(req, res) => {
     res.render('add-fornisseur', {
@@ -205,22 +205,24 @@ app.post('/add/fornisseur',(req, res) => {
     });
 });
 
+////// UPDATE
 
-// // // update some data
+// app.get('/edit/fornisseur',(req, res) => {
 
-// app.get('/edit/:id',(req, res) => {
-
-//     const authorId = req.params.id;
-//     let sql = `Select * from produit where id_P = ${authorId}`;
+//     let sql = `Select * from fornisseur where id_F = ${authorId}`;
 //     let query = con.query(sql,(err, result) => {
 //         if(err) throw err;
-//         res.render('edit-produit', {
-//             siteTitl : siteTitl,
-//             pageTitle : "Editing Product: ",
+//         res.render('edit-fornisseur', {
+//             siteTitlle : siteTitlle,
+//             pageTitle : "Editing fornisseur: ",
 //             item : result
 //         });
 //     });
 // });
+
+app.get('/edit/fornisseur',(req, res) => {
+    res.render('edit-fornisseur')
+});
 
 // app.post('/edit/:id',(req, res) => {
   
@@ -234,9 +236,9 @@ app.post('/add/fornisseur',(req, res) => {
 
 
 // //  Delete some data
-// app.get('/delete/:id', (req, res) => {
+// app.get('/fornisseur/delete/:id', (req, res) => {
 //     const userId = req.params.id;
-//     let sql = `DELETE from produit where id_P = ${userId}`;
+//     let sql = `DELETE from fornisseur where id_F = ${userId}`;
 //     let query = con.query(sql,(err, result) => {
 //         if(err) throw err;
 //         res.redirect(baseURL);

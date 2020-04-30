@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= siteTitl %></title>
+    <title><%= siteTitlle %></title>
     <style>
         *{border-radius: 0px !important;}
         body{
@@ -17,34 +17,34 @@
         <span class="navbar-brand" style="color: #fff;"><%= pageTitle %></span>
     </nav>
     <div class="row" style="margin-left: 50px; margin-right: 50px; margin-top: 90px;">
-        <form action="/edit/<%= item[0].id_P %>" method="POST" class="col">
-            <input type="hidden" name="id_P" value="<%= item[0].id_P %>">
+        <form action="/edit/fornisseur" method="POST" class="col">
+            <input type="hidden" name="id_F" value="<%= item[0].id_F %>">
             <div class="form-group row">
-                <label for="name_p" class="col-2 col-form-label">Name</label>
+                <label for="name" class="col-2 col-form-label">Name</label>
                 <div class="col-10">
-                    <input type="text" name="name_p" value="<%= item[0].name_p %>" class="form-control">
+                    <input type="text" name="name" value="<%= item[0].name %>" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="category" class="col-2 col-form-label">Category</label>
+                <label for="address" class="col-2 col-form-label">Address</label>
                 <div class="col-10">
-                    <input type="text" name="category" value="<%= item[0].category %>" class="form-control">
+                    <input type="text" name="address" value="<%= item[0].address %>" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="price" class="col-2 col-form-label">Price</label>
+                <label for="télé" class="col-2 col-form-label">Télé</label>
                 <div class="col-10">
-                    <input type="number" name="price" value="<%= item[0].price %>" class="form-control">
+                    <input type="tel" name="télé" value="<%= item[0].télé %>" class="form-control">
                 </div>
             </div><div class="form-group row">
-                <label for="quantité" class="col-2 col-form-label">Quantité</label>
+                <label for="email" class="col-2 col-form-label">Email</label>
                 <div class="col-10">
-                    <input type="text" name="quantité" value="<%= item[0].quantité %>" class="form-control">
+                    <input type="email" name="email" value="<%= item[0].email %>" class="form-control">
                 </div>
             </div><div class="form-group row">
-                <label for="id_R" class="col-2 col-form-label">Rayon</label>
+                <label for="id_P" class="col-2 col-form-label">id-Produit</label>
                 <div class="col-10">
-                    <input type="number" name="id_R" value="<%= item[0].id_R %>" class="form-control">
+                    <input type="number" name="id_P" value="<%= item[0].id_P %>" class="form-control">
                 </div>
             </div>
             <div class="form-group row" style="margin-left: 16%;">
