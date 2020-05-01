@@ -207,43 +207,35 @@ app.post('/add/fornisseur',(req, res) => {
 
 ////// UPDATE
 
-// app.get('/edit/fornisseur',(req, res) => {
-
-//     let sql = `Select * from fornisseur where id_F = ${authorId}`;
-//     let query = con.query(sql,(err, result) => {
-//         if(err) throw err;
-//         res.render('edit-fornisseur', {
-//             siteTitlle : siteTitlle,
-//             pageTitle : "Editing fornisseur: ",
-//             item : result
-//         });
-//     });
-// });
-
-app.get('/edit/fornisseur',(req, res) => {
-    res.render('edit-fornisseur')
+app.get('/edit-fornisseur',(req, res) => {
+    let sql = `Select * from fornisseur`;
+    let query = con.query(sql,(err, result) => {
+        if(err) throw err;
+        res.render('edit-fornisseur', {
+            siteTitlle : siteTitlle,
+            pageTitle : "Editing fornisseur: ",
+            item : result
+        });
+    });
 });
 
-// app.post('/edit/:id',(req, res) => {
-  
-//     let userId = req.body.id_P
-//       let sql = `UPDATE produit SET name_p='${req.body.name_p}', category='${req.body.category}', price='${req.body.price}', quantité='${req.body.quantité}', id_R='${req.body.id_R}' WHERE id_P =${userId}`;
-//       let query = con.query(sql,(err, results) => {
-//         if(err) throw err;
-//         res.redirect(baseURL);
-//       });
-//   });
+app.post('/edit-fornisseur',(req, res) => {
+    let userId = req.body.id_F
+      let sql = `UPDATE fornisseur SET name='${req.body.name}', address='${req.body.address}', télé='${req.body.télé}', email='${req.body.email}', id_P='${req.body.id_P}' WHERE id_F =${userId}`;
+      let query = con.query(sql,(err, results) => {
+        if(err) throw err;
+        res.redirect(baseURL);
+      });
+  });
 
-
-// //  Delete some data
-// app.get('/fornisseur/delete/:id', (req, res) => {
-//     const userId = req.params.id;
-//     let sql = `DELETE from fornisseur where id_F = ${userId}`;
-//     let query = con.query(sql,(err, result) => {
-//         if(err) throw err;
-//         res.redirect(baseURL);
-//     });
-// });
+//  Delete some data
+app.get('/delete-fornisseur', (req, res) => {
+    let sql = `DELETE from fornisseur`;
+    let query = con.query(sql,(err, result) => {
+        if(err) throw err;
+        res.redirect(baseURL);
+    });
+});
 
 app.listen(3000,function(){
     console.log('Server is running at port 3000')

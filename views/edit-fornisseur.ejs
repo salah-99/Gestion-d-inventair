@@ -17,7 +17,7 @@
         <span class="navbar-brand" style="color: #fff;"><%= pageTitle %></span>
     </nav>
     <div class="row" style="margin-left: 50px; margin-right: 50px; margin-top: 90px;">
-        <form action="/edit/fornisseur" method="POST" class="col">
+        <form action="/edit-fornisseur" method="POST" class="col">
             <input type="hidden" name="id_F" value="<%= item[0].id_F %>">
             <div class="form-group row">
                 <label for="name" class="col-2 col-form-label">Name</label>
@@ -34,7 +34,7 @@
             <div class="form-group row">
                 <label for="télé" class="col-2 col-form-label">Télé</label>
                 <div class="col-10">
-                    <input type="tel" name="télé" value="<%= item[0].télé %>" class="form-control">
+                    <input type="number" name="télé" value="<%= item[0].télé %>" class="form-control">
                 </div>
             </div><div class="form-group row">
                 <label for="email" class="col-2 col-form-label">Email</label>

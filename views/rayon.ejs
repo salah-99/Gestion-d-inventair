@@ -14,21 +14,35 @@
             max-width: 286px;
             height: 190px ;
         }
+        .card {
+            background: #fff;
+            display: inline-block;
+            position: relative;
+            width: 300px;
+        }
+        .card-1 {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+        .card-1:hover {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand" style="color: #fff;"><%= pageTitle %></span>
+        <a href="/rayon/add" class="btn btn-info btn-lg">Add new Rayon</a>
     </nav>
     <div class="container">
         <div class="row">
             <% if (items.length > 0) { %>
                 <% items.forEach(function(item, rayon){ %>
                         <div class="col col-12 col-md-6 col-lg-4 col-xl-3" style="margin-top: 5%;">
-                            <div class="card" style="width: 18rem;">
-                                <img src="<%= item.img %>" class="card-img-top" alt="...">
+                            <div class="card card-1" style="width: 18rem;">
+                                <a href="/produit/<%= item.id_R %>"><img src="<%= item.img %>" class="card-img-top" alt="..."></a> 
                                 <div class="card-body">
-                                  <h5 class="card-title">
+                                  <h5 class="card-title" style="text-align: center;">
                                       <a href="/produit/<%= item.id_R %>" style="color: rgb(47, 89, 93);"><%= item.name %></a>
                                   </h5>
                                 </div>
@@ -39,15 +53,11 @@
                             </center>
                         </div>
                 <% }); %>
-    <% }else{ %>
-        <p><strong>There are no records available</strong></p>
-    <% } %>
+            <% }else{ %>
+                <p><strong>There are no records available</strong></p>
+            <% } %>
         </div>
     </div>
-        <div class="col s12" style="margin-top: 3%;">
-            <a href="/rayon/add" class="btn btn-info btn-lg">Add new Rayon</a>
-        </div>
-
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

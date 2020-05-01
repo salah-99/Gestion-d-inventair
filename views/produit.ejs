@@ -15,13 +15,14 @@
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand" style="color: #fff;"><a href="/" style="text-decoration: none; color: white;">Rayon</a>-<%= pageTitle %></span>
+        <a href="/add" class="btn btn-info btn-lg">Add new produit</a>
     </nav>
         <div class="col s12" style="margin-top: 3%;">
             <% if (items.length > 0) { %>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th style="width: 15%;text-align: center;">Name</th>
+                            <th style="width: 7%;">Name</th>
                             <th style="width: 15%;text-align: center;">Category</th>
                             <th style="width: 15%;text-align: center;">Price</th>
                             <th style="width: 15%;text-align: center;">Quantité</th>
@@ -33,14 +34,15 @@
                     <tbody>
                         <% items.forEach(function(item, produit){ %>
                             <tr>
-                                <td style="width: 15%;text-align: center;"><a href="/fornisseur/<%= item.id_P %>" style="color: black; text-decoration: none;"><%= item.name_p %></a></td>
+                                <td style="width: 7%;"><%= item.name_p %></td>
                                 <td style="width: 15%;text-align: center;"><%= item.category %></td>
                                 <td style="width: 15%;text-align: center;"><%= item.price %> $</td>
                                 <td style="width: 15%;text-align: center;"><%= item.quantité %></td>
                                 <td style="width: 15%;text-align: center;"><%= item.id_R %></td>
                                 <td style="width: 15%;text-align: center;"><%= item.name %></td>
-                                <td solspan="2" style="width: 20%;text-align: center;">
-                                    <a href="/edit/<%= item.id_P %>" class="btn btn-secondary">Edit</a>
+                                <td solspan="3" style="width: 20%;text-align: center;">
+                                    <a href="/fornisseur/<%= item.id_P %>" class="btn btn-secondary">Fornisseur</a>
+                                    <a href="/edit/<%= item.id_P %>" class="btn " style="background-color: rgb(28, 148, 156); color: white;">Edit</a>
                                     <a href="/delete/<%= item.id_P %>" class="btn btn-info">Delete</a>
                                 </td>
                             </tr>
@@ -51,9 +53,6 @@
                 <p><strong>There are no records available</strong></p>
             <% } %>
         </div>
-            <div class="col s12" style="margin-top: 3%;">
-                <a href="/add" class="btn btn-info btn-lg">Add new produit</a>
-            </div>
     
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
