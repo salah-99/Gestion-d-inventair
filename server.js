@@ -1,10 +1,16 @@
 const express = require('express')
 const mysql = require('mysql')
 const bodyParser = require('body-parser')
+const path = require('path')
 const app = express()
+
+
+app.use(express.static(path.join(__dirname, 'images')))
+
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.set('view engine', 'ejs')
+
 
 const con = mysql.createConnection({
     host: "localhost",
@@ -18,7 +24,7 @@ con.connect(function(error){
     else console.log('Database is Connected');
 }); 
 
-const siteTitle = 'Rayon'
+const siteTitle = 'Stock Management'
 const baseURL = 'http://localhost:3000/'
 
 
@@ -30,7 +36,7 @@ app.get('/',(req, res) => {
         if(err) throw err;
         res.render('rayon', {
             siteTitle : siteTitle,
-            pageTitle : 'Rayon',
+            pageTitle : 'Stock Management',
             items : result
         });
     });
@@ -95,7 +101,7 @@ app.get('/rayon/delete/:id', (req, res) => {
 
 /////////////////////////////////      PRODUIT     ///////////////////////////////////////////////
 
-const siteTitl = 'Produit'
+const siteTitl = 'Product'
 
 // Get the product
 app.get('/produit/:id',(req, res) => {
@@ -105,7 +111,7 @@ app.get('/produit/:id',(req, res) => {
         if(err) throw err;
         res.render('produit', {
             siteTitl : siteTitl,
-            pageTitle : 'Produit',
+            pageTitle : 'Product: ',
             items : result
         });
     });
@@ -116,7 +122,7 @@ app.get('/produit/:id',(req, res) => {
 app.get('/add',(req, res) => {
     res.render('add-produit', {
         siteTitl : siteTitl,
-        pageTitle : 'Add new Product',
+        pageTitle : 'Add new Product :',
         items : ''
     });
 });
@@ -141,7 +147,7 @@ app.get('/edit/:id',(req, res) => {
         if(err) throw err;
         res.render('edit-produit', {
             siteTitl : siteTitl,
-            pageTitle : "Editing Product: ",
+            pageTitle : "Editing Product: " ,
             item : result
         });
     });
@@ -170,7 +176,7 @@ app.get('/delete/:id', (req, res) => {
 
 /////////////////////////////////       Fornisseur      ///////////////////////////////////////////////
 
-const siteTitlle = 'Fornisseur'
+const siteTitlle = 'Provider'
 
 // Get the fornisseur
 app.get('/fornisseur/:id',(req, res) => {
@@ -180,7 +186,7 @@ app.get('/fornisseur/:id',(req, res) => {
         if(err) throw err;
         res.render('fornisseur', {
             siteTitlle : siteTitlle,
-            pageTitle : 'Fornisseur',
+            pageTitle : 'Provider',
             items : result
         });
     });
@@ -191,7 +197,7 @@ app.get('/fornisseur/:id',(req, res) => {
 app.get('/add/fornisseur',(req, res) => {
     res.render('add-fornisseur', {
         siteTitlle : siteTitlle,
-        pageTitle : 'Add new Fornisseur',
+        pageTitle : 'Add new Provider ',
         items : ''
     });
 });
@@ -205,28 +211,6 @@ app.post('/add/fornisseur',(req, res) => {
     });
 });
 
-////// UPDATE
-
-app.get('/edit-fornisseur',(req, res) => {
-    let sql = `Select * from fornisseur`;
-    let query = con.query(sql,(err, result) => {
-        if(err) throw err;
-        res.render('edit-fornisseur', {
-            siteTitlle : siteTitlle,
-            pageTitle : "Editing fornisseur: ",
-            item : result
-        });
-    });
-});
-
-app.post('/edit-fornisseur',(req, res) => {
-    let userId = req.body.id_F
-      let sql = `UPDATE fornisseur SET name='${req.body.name}', address='${req.body.address}', télé='${req.body.télé}', email='${req.body.email}', id_P='${req.body.id_P}' WHERE id_F =${userId}`;
-      let query = con.query(sql,(err, results) => {
-        if(err) throw err;
-        res.redirect(baseURL);
-      });
-  });
 
 //  Delete some data
 app.get('/delete-fornisseur', (req, res) => {

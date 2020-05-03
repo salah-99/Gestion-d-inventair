@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!doctype html>
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta charset="utf-8">
     <title><%= siteTitle %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         body{
             margin: 0px;
             padding: 0px;
-        }
-        img{
-            max-width: 286px;
-            height: 190px ;
         }
         .card {
             background: #fff;
@@ -29,37 +26,58 @@
         }
     </style>
 </head>
-<body>
-    <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand" style="color: #fff;"><%= pageTitle %></span>
-        <a href="/rayon/add" class="btn btn-info btn-lg">Add new Rayon</a>
+<body style="background-color: rgb(241, 241, 241);">
+    <nav class="navbar navbar-expand-lg" style="background-color: white;">
+        <img src="Annotation_2020-05-02_145304-removebg.png" style="width: 5%;">
+        <span class="navbar-brand" style="color: rgb(78, 72, 72); font-family: 'Poppins Medium';"><%= pageTitle %></span>
     </nav>
+    <div>
+        <img src="person-holding-blue-ballpoint-pen-on-white-notebook-669610.jpg"  style="width: 100%;">
+    </div>
+    <div class="container" style="margin-top: 5%;">
+        <h3 style="color: rgb(31, 95, 133);">
+            Department :
+        </h3>
+    </div>
     <div class="container">
         <div class="row">
             <% if (items.length > 0) { %>
                 <% items.forEach(function(item, rayon){ %>
-                        <div class="col col-12 col-md-6 col-lg-4 col-xl-3" style="margin-top: 5%;">
-                            <div class="card card-1" style="width: 18rem;">
-                                <a href="/produit/<%= item.id_R %>"><img src="<%= item.img %>" class="card-img-top" alt="..."></a> 
+                        <div class="col col-md-4" style="margin-top: 5%;">
+                            <div class="card card-1" style="width: 18rem; background-color: rgb(233, 233, 233);">
+                                <a href="/produit/<%= item.id_R %>" class="card-img-top"><img src="<%= item.img %>" class="card-img-top" alt="..." style="max-width: 286px; height: 190px;"></a> 
                                 <div class="card-body">
                                   <h5 class="card-title" style="text-align: center;">
-                                      <a href="/produit/<%= item.id_R %>" style="color: rgb(47, 89, 93);"><%= item.name %></a>
+                                      <a href="/produit/<%= item.id_R %>" style="color: rgb(31, 95, 133); text-decoration: none;"><%= item.name %></a>
                                   </h5>
                                 </div>
                             </div>
-                            <center style="margin-top: 5%;">
-                                <a href="/rayon/edit/<%= item.id_R %>" class="btn btn-secondary">Edit</a>
-                                <a href="/rayon/delete/<%= item.id_R %>" class="btn btn-info">Delete</a>
-                            </center>
+                            <div style="margin-top: 5%;">
+                                <a href="/rayon/edit/<%= item.id_R %>" class="btn" style="background-color: rgb(35, 219, 201); color: white;">Edit</a>
+                                <a href="/rayon/delete/<%= item.id_R %>" class="btn" style="background-color: rgb(49, 175, 197); color: white;">Delete</a>
+                            </div>
                         </div>
                 <% }); %>
             <% }else{ %>
-                <p><strong>There are no records available</strong></p>
+                <p style="text-align: center; margin-top: 20%;"><strong>There are no records available</strong></p>
             <% } %>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <div style="margin-top: 5%;">
+        <center>
+            <a href="/rayon/add" class="btn btn-info btn-lg">Add new Rayon</a>
+        </center>
+    </div>
+    <footer style="background-color: black; height: 250px; margin-top: 7%;">
+        <center >
+            <h4 style="padding-top: 3%; color: white;">
+                POWERED BY :
+            </h4>
+            <img src="skitterend-against-black-background-1337388 (1).jpg" style="width: 7%; height: auto; margin-top: 2%;">
+        </center>
+    </footer>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 </html>
