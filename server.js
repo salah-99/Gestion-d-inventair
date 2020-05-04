@@ -197,7 +197,7 @@ app.get('/fornisseur/:id',(req, res) => {
 app.get('/add/fornisseur',(req, res) => {
     res.render('add-fornisseur', {
         siteTitlle : siteTitlle,
-        pageTitle : 'Add new Provider ',
+        pageTitle : 'Add Provider ',
         items : ''
     });
 });
